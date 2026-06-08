@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SECURESTACK | IT Infrastructure & Cyber Security Specialist</title>
+    <style>
+        /* ========== COMPLETE CSS ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #0a0a0a;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .highlight {
+            color: #00d4ff;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #00d4ff;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section with Server Rack Dark Theme */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect x="10" y="10" width="40" height="30" rx="3" fill="none" stroke="%2300d4ff" stroke-width="0.5" opacity="0.3"/><rect x="60" y="10" width="40" height="30" rx="3" fill="none" stroke="%2300d4ff" stroke-width="0.5" opacity="0.3"/><rect x="110" y="10" width="40" height="30" rx="3" fill="none" stroke="%2300d4ff" stroke-width="0.5" opacity="0.3"/><circle cx="30" cy="55" r="8" fill="none" stroke="%2300d4ff" stroke-width="0.5" opacity="0.2"/><circle cx="80" cy="55" r="8" fill="none" stroke="%2300d4ff" stroke-width="0.5" opacity="0.2"/><circle cx="130" cy="55" r="8" fill="none" stroke="%2300d4ff" stroke-width="0.5" opacity="0.2"/></svg>');
+            background-repeat: repeat;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+
+        .hero-tagline {
+            font-size: 1.2rem;
+            color: #00d4ff;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: #bbb;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-right: 1rem;
+        }
+
+        .btn-primary {
+            background: #00d4ff;
+            color: #0a0a0a;
+        }
+
+        .btn-primary:hover {
+            background: #0099cc;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .btn-outline {
+            border: 2px solid #00d4ff;
+            color: #00d4ff;
+        }
+
+        .btn-outline:hover {
+            background: #00d4ff;
+            color: #0a0a0a;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badges span {
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        .trust-badges i {
+            color: #00d4ff;
+            margin-right: 0.5rem;
+        }
+
+        .hero-image {
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .server-rack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 20px;
+        }
+
+        .rack-server {
+            background: linear-gradient(90deg, #1a1a1a, #2a2a2a);
+            border-left: 4px solid #00d4ff;
+            padding: 12px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .rack-server i {
+            font-size: 1.5rem;
+            color: #00d4ff;
+        }
+
+        .rack-server span {
+            color: white;
+            font-size: 0.85rem;
+        }
+
+        .led {
+            width: 10px;
+            height: 10px;
+            background: #00d4ff;
+            border-radius: 50%;
+            margin-left: auto;
+            box-shadow: 0 0 5px #00d4ff;
+            animation: ledBlink 1s infinite;
+        }
+
+        @keyframes ledBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Stats */
+        .stats {
+            background: #00d4ff;
+            color: #0a0a0a;
+            padding: 3rem 0;
+        }
+
+        .stats .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Expertise */
+        .expertise-preview {
+            padding: 5rem 0;
+            background: #0f0f0f;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+            border-bottom: 3px solid #00d4ff;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .expertise-card i {
+            font-size: 2.5rem;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .expertise-card p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        /* Skills Section - 8 Points */
+        .skills-section {
+            padding: 5rem 0;
+            background: #0a0a0a;
+            color: white;
+        }
+
+        .skills-section .section-title {
+            color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: rgba(0, 212, 255, 0.08);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            background: rgba(0, 212, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .skill-card i {
+            font-size: 2rem;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h4 {
+            font-size: 1rem;
+            color: white;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #0a0a0a;
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .cta .btn-primary {
+            background: #0a0a0a;
+            color: #00d4ff;
+        }
+
+        .cta .btn-primary:hover {
+            background: white;
+            color: #0a0a0a;
+        }
+
+        /* Footer */
+        footer {
+            background: #050505;
+            color: white;
+            padding: 3rem 0 1rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo h3 {
+            margin-bottom: 0.5rem;
+            color: #00d4ff;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 2;
+        }
+
+        .footer-links a:hover {
+            color: #00d4ff;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #00d4ff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #222;
+        }
+
+        /* Services Page */
+        .page-header {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            color: white;
+            text-align: center;
+            padding: 120px 0 60px;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .services-full {
+            padding: 4rem 0;
+            background: #0f0f0f;
+        }
+
+        .service-category {
+            background: #1a1a1a;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .service-category:hover {
+            transform: translateY(-3px);
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #0a0a0a;
+            padding: 1.2rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .category-header i {
+            font-size: 1.8rem;
+        }
+
+        .category-header h2 {
+            font-size: 1.4rem;
+        }
+
+        .service-list {
+            padding: 1.5rem 2rem;
+        }
+
+        .service-list ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .service-list li {
+            padding-left: 1.5rem;
+            position: relative;
+            color: #ccc;
+        }
+
+        .service-list li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+
+        /* Projects Page */
+        .projects-grid {
+            padding: 4rem 0;
+            background: #0f0f0f;
+        }
+
+        .project-card {
+            background: #1a1a1a;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #0a0a0a;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .project-card h2 {
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .project-meta {
+            color: #888;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .project-content h3 {
+            margin: 1rem 0 0.5rem;
+            color: #00d4ff;
+        }
+
+        .project-content ul {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .project-content li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            color: #ccc;
+        }
+
+        .project-content li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+
+        .project-result {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #00d4ff;
+        }
+
+        /* About Page - No Image */
+        .about-story {
+            padding: 4rem 0;
+            background: #0f0f0f;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content h2 {
+            margin-bottom: 1.5rem;
+            color: white;
+            text-align: center;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            color: #aaa;
+            text-align: center;
+        }
+
+        .signature {
+            margin-top: 2rem;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #00d4ff;
+            text-align: center;
+        }
+
+        /* Contact Page */
+        .contact-section {
+            padding: 4rem 0;
+            background: #0f0f0f;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .contact-info > p {
+            margin-bottom: 2rem;
+            color: #aaa;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #00d4ff;
+        }
+
+        .contact-item h4 {
+            margin-bottom: 0.25rem;
+            color: white;
+        }
+
+        .contact-item p {
+            color: #aaa;
+        }
+
+        .contact-form {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid #333;
+            border-radius: 8px;
+            font-family: inherit;
+            background: #2a2a2a;
+            color: white;
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #00d4ff;
+        }
+
+        .contact-form button {
+            width: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: #0a0a0a;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+                border-bottom: 1px solid #00d4ff;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .hero .container,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .trust-badges {
+                justify-content: center;
+            }
+            
+            .stats .container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">
+            <a href="#">SECURESTACK</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
+            <li><a href="#" onclick="showPage('about')">About</a></li>
+            <li><a href="#" onclick="showPage('services')">Services</a></li>
+            <li><a href="#" onclick="showPage('projects')">Projects</a></li>
+            <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="home-page">
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>SECURESTACK</h1>
+                <div class="typed-container">
+                    <h2>IT Infrastructure & <span id="typed-text"></span></h2>
+                </div>
+                <p class="hero-tagline">Windows Server | MikroTik | pfSense | OpenVPN | Network Architecture</p>
+                <p class="hero-description">
+                    "I design enterprise-grade IT infrastructure — Windows Server, MikroTik, pfSense, OpenVPN — with practical hands-on experience. Whether it's 5 users or 50, I deliver cost-effective and future-proof solutions that keep your data secure and your business running smoothly."
+                </p>
+                <div class="hero-buttons">
+                    <a href="#" onclick="showPage('contact')" class="btn btn-primary">Get a Free Consultation</a>
+                    <a href="#" onclick="showPage('projects')" class="btn btn-outline">View My Work</a>
+                </div>
+                <div class="trust-badges">
+                    <span><i class="fas fa-check-circle"></i> 50+ Projects Delivered</span>
+                    <span><i class="fas fa-shield-alt"></i> 100% Data Security</span>
+                    <span><i class="fas fa-clock"></i> 24/7 Support Available</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="server-rack">
+                    <div class="rack-server"><i class="fas fa-server"></i><span>Windows Server</span><div class="led"></div></div>
+                    <div class="rack-server"><i class="fas fa-firewall"></i><span>pfSense Firewall</span><div class="led"></div></div>
+                    <div class="rack-server"><i class="fas fa-network-wired"></i><span>MikroTik RouterOS</span><div class="led"></div></div>
+                    <div class="rack-server"><i class="fas fa-vpn"></i><span>OpenVPN / WireGuard</span><div class="led"></div></div>
+                    <div class="rack-server"><i class="fas fa-database"></i><span>RAID 10 Storage Array</span><div class="led"></div></div>
+                    <div class="rack-server"><i class="fas fa-chart-line"></i><span>Real-time Monitoring</span><div class="led"></div></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label">Projects Completed</div></div>
+            <div class="stat-item"><div class="stat-number">100+</div><div class="stat-label">Happy Clients</div></div>
+            <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Support Available</div></div>
+            <div class="stat-item"><div class="stat-number">99.9%</div><div class="stat-label">Uptime Record</div></div>
+        </div>
+    </section>
+
+    <section class="expertise-preview">
+        <div class="container">
+            <h2 class="section-title">Core <span class="highlight">Expertise</span></h2>
+            <div class="expertise-grid">
+                <div class="expertise-card"><i class="fas fa-server"></i><h3>Server Infrastructure</h3><p>Windows Server 2019/2022/2025, Multi-User RDP, Hyper-V, Active Directory, PowerShell Automation</p></div>
+                <div class="expertise-card"><i class="fas fa-firewall"></i><h3>Network & Firewall</h3><p>MikroTik, pfSense, OPNsense, VLAN Design, Load Balancing, QoS, Enterprise Firewall Rules</p></div>
+                <div class="expertise-card"><i class="fas fa-vpn"></i><h3>VPN & Secure Access</h3><p>OpenVPN, WireGuard, Site-to-Site VPN, VPN-based RDP, Split Tunneling</p></div>
+                <div class="expertise-card"><i class="fas fa-shield-haltered"></i><h3>Cyber Security</h3><p>Network Hardening, RDP Security, DDoS Mitigation, IP Masking, Data Leak Prevention</p></div>
+                <div class="expertise-card"><i class="fas fa-database"></i><h3>Backup & DR</h3><p>Automated Daily Backup, Cloud Sync, 2-Day Rotation, Disaster Recovery Planning</p></div>
+                <div class="expertise-card"><i class="fas fa-chart-line"></i><h3>Monitoring & Dashboard</h3><p>Real-time Server Dashboard, User Activity Tracking, Failed Login Alerts</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section - 8 Points -->
+    <section class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Technical <span class="highlight">Skills</span></h2>
+            <div class="skills-grid">
+                <div class="skill-card"><i class="fab fa-windows"></i><h4>Windows Server Administration</h4></div>
+                <div class="skill-card"><i class="fas fa-network-wired"></i><h4>MikroTik & RouterOS</h4></div>
+                <div class="skill-card"><i class="fas fa-firewall"></i><h4>pfSense / OPNsense Firewall</h4></div>
+                <div class="skill-card"><i class="fas fa-lock"></i><h4>Cyber Security & Hardening</h4></div>
+                <div class="skill-card"><i class="fas fa-vpn"></i><h4>OpenVPN / WireGuard</h4></div>
+                <div class="skill-card"><i class="fas fa-code"></i><h4>PowerShell Scripting</h4></div>
+                <div class="skill-card"><i class="fas fa-cloud-upload-alt"></i><h4>Cloud Backup & DR</h4></div>
+                <div class="skill-card"><i class="fas fa-chart-line"></i><h4>Server Monitoring & Dashboard</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container"><h2>Ready to Secure Your IT Infrastructure?</h2><p>Get a free consultation and quote for your business needs</p><a href="#" onclick="showPage('contact')" class="btn btn-primary">Contact Me Today</a></div>
+    </section>
+</div>
+
+<!-- ABOUT PAGE - NO IMAGE SECTION -->
+<div id="about-page" style="display: none;">
+    <section class="page-header"><div class="container"><h1>About <span class="highlight">Me</span></h1><p>IT Infrastructure & Cyber Security Specialist with 8+ years of experience</p></div></section>
+    <section class="about-story"><div class="container"><div class="about-grid"><div class="about-content"><h2>My Journey with SECURESTACK</h2><p>I am a seasoned IT Infrastructure & Cyber Security Specialist with extensive hands-on experience in designing, deploying, and managing enterprise-grade server environments for businesses across India.</p><p>I specialize in building secure, high-performance server infrastructures that enable businesses to operate remotely with complete data protection and zero downtime.</p><p>My approach combines enterprise-level security practices with cost-effective solutions, ensuring businesses get maximum protection without breaking the bank.</p><p>Whether it's a 5-user accounting firm or a 50-user multi-branch organization, I design scalable, future-proof IT systems that grow with your business.</p><div class="signature"><p>— Jitesh Chhabra, SECURESTACK</p></div></div></div></div></section>
+</div>
+
+<!-- SERVICES PAGE -->
+<div id="services-page" style="display: none;">
+    <section class="page-header"><div class="container"><h1>My <span class="highlight">Services</span></h1><p>End-to-end IT infrastructure solutions for your business</p></div></section>
+    <section class="services-full"><div class="container">
+        <div class="service-category"><div class="category-header"><i class="fas fa-server"></i><h2>01. Windows Server Infrastructure</h2></div><div class="service-list"><ul><li>Complete Windows Server deployment from scratch</li><li>Multi-user RDP environment for 10-100+ users</li><li>Server hardening, optimization & security</li><li>User management, permissions & access control</li><li>PowerShell automation for daily operations</li></ul></div></div>
+        
+        <div class="service-category"><div class="category-header"><i class="fas fa-network-wired"></i><h2>02. Network Architecture & Firewall</h2></div><div class="service-list"><ul><li>MikroTik router full configuration (RB750, hEX, CCR series)</li><li>pfSense/OPNsense open-source firewall setup</li><li>VLAN design for department-level network isolation</li><li>Dual WAN load balancing & automatic failover</li><li>Bandwidth management & traffic prioritization (QoS)</li><li>Hotspot gateway for offices, cafes & hotels</li><li>Enterprise firewall rule design & implementation</li></ul></div></div>
+        
+        <div class="service-category"><div class="category-header"><i class="fas fa-vpn"></i><h2>03. VPN & Secure Remote Access</h2></div><div class="service-list"><ul><li>OpenVPN server setup for unlimited remote users</li><li>WireGuard VPN for high-speed secure tunneling</li><li>Site-to-Site VPN for multi-branch connectivity</li><li>VPN-based RDP access (no direct port exposure)</li><li>Single .ovpn file deployment for all clients</li><li>MikroTik Cloud DDNS for dynamic IP environments</li><li>L2TP/IPsec, SSTP VPN configurations</li></ul></div></div>
+        
+        <div class="service-category"><div class="category-header"><i class="fas fa-shield-haltered"></i><h2>04. Cyber Security & Data Protection</h2></div><div class="service-list"><ul><li>Enterprise-level server hardening</li><li>Role-based data isolation (per-user drive/folder access)</li><li>Data leak prevention (clipboard, USB, drive block)</li><li>Brute force attack protection & RDP security</li><li>IP masking & stealth server configuration</li><li>Audit logging & user activity tracking</li><li>DDoS protection & port security</li><li>Windows Defender configuration & monitoring</li></ul></div></div>
+        
+        <div class="service-category"><div class="category-header"><i class="fas fa-database"></i><h2>05. Backup & Disaster Recovery</h2></div><div class="service-list"><ul><li>Automated daily compressed (RAR) backup</li><li>Cloud backup to Mega.nz, Google Drive, OneDrive</li><li>2-day rotation with auto-cleanup system</li><li>Pre-backup user logout & RDP lock system</li><li>External HDD / NAS backup automation</li><li>Shadow Copy & Volume Snapshot configuration</li><li>Complete disaster recovery planning</li><li>Bare metal recovery setup</li></ul></div></div>
+        
+        <div class="service-category"><div class="category-header"><i class="fas fa-chart-line"></i><h2>06. Server Monitoring & Dashboard</h2></div><div class="service-list"><ul><li>Custom real-time HTML server dashboard</li><li>Live CPU, RAM, disk, user monitoring</li><li>Per-user software activity tracking</li><li>Failed login alerts & security audit</li><li>Backup status monitoring & reports</li><li>Automated health reports & alerts</li><li>Scheduled maintenance automation</li><li>Disk health & performance reporting</li></ul></div></div>
+        
+        <div class="service-category"><div class="category-header"><i class="fab fa-linux"></i><h2>07. Open Source Solutions</h2></div><div class="service-list"><ul><li>pfSense firewall (enterprise-grade, zero licensing cost)</li><li>OPNsense modern firewall with web GUI</li><li>VyOS advanced CLI-based routing</li><li>OpenWrt for budget router environments</li><li>RustDesk self-hosted remote access</li><li>WireGuard VPN high-speed secure tunneling</li><li>MikroTik RouterOS optimization</li><li>Complete open-source infrastructure stack</li></ul></div></div>
+        
+        <div class="service-category"><div class="category-header"><i class="fas fa-handshake"></i><h2>08. Consultation & AMC</h2></div><div class="service-list"><ul><li>IT infrastructure planning & consultation</li><li>Monthly/Annual maintenance contracts (AMC)</li><li>Remote support & troubleshooting</li><li>Server health audits & security reviews</li><li>Scalability planning for growing businesses</li><li>24/7 monitoring & proactive maintenance</li></ul></div></div>
+    </div></section>
+</div>
+
+<!-- PROJECTS PAGE -->
+<div id="projects-page" style="display: none;">
+    <section class="page-header"><div class="container"><h1>Key <span class="highlight">Projects</span></h1><p>Real-world solutions delivered for Indian businesses</p></div></section>
+    <section class="projects-grid"><div class="container">
+        <div class="project-card"><div class="project-badge">PROJECT 1</div><h2>Multi-User Secure RDP Server</h2><div class="project-meta">Accounting Firm (CA Office) | 15+ Users | Remote Access</div><div class="project-content"><h3>Technologies Used:</h3><p>Windows Server 2022 | MikroTik | OpenVPN | RDS | PowerShell</p><h3>Deliverables:</h3><ul><li>Windows Server 2022 installation & hardening</li><li>Multi-user RDP environment for remote employees</li><li>Per-user drive isolation & folder permissions</li><li>Automated RAR backup with 2-day rotation</li><li>MikroTik OpenVPN for secure remote connectivity</li><li>Real-time server monitoring dashboard</li><li>Data leak prevention (clipboard, USB, drives blocked)</li><li>Enterprise security: NLA, lockout policy, audit logging</li></ul><div class="project-result">✅ Result: Zero downtime, zero data breach incidents.</div></div></div>
+        
+        <div class="project-card"><div class="project-badge">PROJECT 2</div><h2>Multi-Branch VPN Network</h2><div class="project-meta">Trading Company | 3 Branches | Tally Multi-site</div><div class="project-content"><h3>Technologies Used:</h3><p>MikroTik | OpenVPN | Site-to-Site VPN | QoS</p><h3>Deliverables:</h3><ul><li>MikroTik configuration at 3 locations</li><li>Site-to-Site OpenVPN tunnels</li><li>Centralized Tally/Busy server access</li><li>Bandwidth management & QoS</li><li>Dual WAN failover setup</li><li>Firewall hardening at all sites</li></ul><div class="project-result">✅ Result: All branches connected with secure, fast access to central accounting data.</div></div></div>
+        
+        <div class="project-card"><div class="project-badge">PROJECT 3</div><h2>Open Source Firewall Deployment</h2><div class="project-meta">Small Business Office | pfSense | OpenVPN</div><div class="project-content"><h3>Technologies Used:</h3><p>pfSense | OpenVPN | VLAN | Content Filtering</p><h3>Deliverables:</h3><ul><li>pfSense firewall on repurposed hardware</li><li>OpenVPN remote access for 10 users</li><li>VLAN-based department isolation</li><li>Content filtering & bandwidth control</li><li>Zero licensing cost infrastructure</li></ul><div class="project-result">✅ Result: Enterprise-grade security at zero software cost.</div></div></div>
+        
+        <div class="project-card"><div class="project-badge">PROJECT 4</div><h2>Server Stealth & IP Masking</h2><div class="project-meta">Financial Services Firm | IP Masking | Data Protection</div><div class="project-content"><h3>Technologies Used:</h3><p>Proxy-based routing | IP Masking | Audit Logging</p><h3>Deliverables:</h3><ul><li>Server location masking (IP hidden from users)</li><li>Proxy-based internet routing</li><li>Complete data leak prevention</li><li>User activity monitoring & audit trail</li><li>Custom admin dashboard with real-time alerts</li></ul><div class="project-result">✅ Result: Server location completely hidden from end users. Zero data leakage incidents.</div></div></div>
+        
+        <div class="project-card"><div class="project-badge">PROJECT 5</div><h2>Automated Backup & Recovery System</h2><div class="project-meta">Manufacturing Company | Backup Automation | Cloud Sync</div><div class="project-content"><h3>Technologies Used:</h3><p>RAR Compression | Mega.nz API | PowerShell | Task Scheduler</p><h3>Deliverables:</h3><ul><li>Automated daily RAR compressed backup</li><li>Cloud sync to Mega.nz</li><li>2-day backup rotation with auto-cleanup</li><li>Pre-backup user logout & RDP lock</li><li>One-click disaster recovery system</li><li>External HDD backup integration</li></ul><div class="project-result">✅ Result: 100% data recovery capability with minimal storage usage.</div></div></div>
+    </div></section>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="contact-page" style="display: none;">
+    <section class="page-header"><div class="container"><h1>Get In <span class="highlight">Touch</span></h1><p>Let's discuss your IT infrastructure needs with SECURESTACK</p></div></section>
+    <section class="contact-section"><div class="container"><div class="contact-grid"><div class="contact-info"><h2>Let's Connect</h2><p>Available for consultations, projects, and long-term maintenance contracts.</p><div class="contact-details"><div class="contact-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><p>chhabrajitesh88@gmail.com</p></div></div><div class="contact-item"><i class="fab fa-linkedin"></i><div><h4>LinkedIn</h4><p>www.linkedin.com/in/jitesh-chhabra-it-specialist</p></div></div><div class="contact-item"><i class="fas fa-map-marker-alt"></i><div><h4>Location</h4><p>Indore, Madhya Pradesh, India</p></div></div></div></div><div class="contact-form"><form id="contactForm"><input type="text" placeholder="Your Name" required><input type="email" placeholder="Your Email" required><input type="text" placeholder="Company Name"><select><option>Select Service</option><option>Windows Server Setup</option><option>MikroTik/pfSense Firewall</option><option>VPN Setup</option><option>Backup Solution</option><option>AMC / Support</option><option>Other</option></select><textarea placeholder="Tell me about your requirements..." rows="5"></textarea><button type="submit" class="btn btn-primary">Send Message</button></form></div></div></div></section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo"><h3>SECURESTACK</h3><p>IT Infrastructure & Cyber Security Specialist</p></div>
+            <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="#" onclick="showPage('home')">Home</a></li><li><a href="#" onclick="showPage('about')">About</a></li><li><a href="#" onclick="showPage('services')">Services</a></li><li><a href="#" onclick="showPage('projects')">Projects</a></li><li><a href="#" onclick="showPage('contact')">Contact</a></li></ul></div>
+            <div class="footer-contact"><h4>Connect</h4><p><i class="fas fa-envelope"></i> chhabrajitesh88@gmail.com</p><div class="social-links"><a href="https://www.linkedin.com/in/jitesh-chhabra-it-specialist" target="_blank"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-github"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025 SECURESTACK | Jitesh Chhabra. All rights reserved.</p></div>
+    </div>
+</footer>
+
+<script>
+    // Page navigation function
+    function showPage(page) {
+        document.getElementById('home-page').style.display = 'none';
+        document.getElementById('about-page').style.display = 'none';
+        document.getElementById('services-page').style.display = 'none';
+        document.getElementById('projects-page').style.display = 'none';
+        document.getElementById('contact-page').style.display = 'none';
+        
+        document.getElementById(page + '-page').style.display = 'block';
+        
+        // Update active nav link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+        });
+        event.target.classList.add('active');
+        
+        // Scroll to top
+        window.scrollTo(0, 0);
+    }
+    
+    // Mobile menu toggle
+    function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    }
+    
+    // Typed text effect
+    const roles = ['Cyber Security Specialist', 'Network Architect', 'Server Administrator', 'Open Source Advocate'];
+    let roleIndex = 0, charIndex = 0, isDeleting = false;
+    const typedTextElement = document.getElementById('typed-text');
+    
+    function typeEffect() {
+        if (!typedTextElement) return;
+        const currentRole = roles[roleIndex];
+        if (isDeleting) {
+            typedTextElement.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typedTextElement.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+        }
+        if (!isDeleting && charIndex === currentRole.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 2000);
+            return;
+        }
+        if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            setTimeout(typeEffect, 500);
+            return;
+        }
+        setTimeout(typeEffect, isDeleting ? 50 : 100);
+    }
+    typeEffect();
+    
+    // Contact form submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! I will get back to you within 24 hours.');
+            this.reset();
+        });
+    }
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.remove('active');
+        });
+    });
+</script>
+
+</body>
+</html>
